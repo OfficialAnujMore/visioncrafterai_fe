@@ -9,6 +9,9 @@ import { uploadFileToImageKit } from '../services/api/imageKitService';
 import { projectService } from '../services/api/projectService';
 import '../styles/ImageUploadModal.css';
 import { showWarningToast } from '../utils/toast';
+import { textVariant } from '../constants/textVarients';
+import { colors } from '../constants/colors';
+import { buttonVarients } from '../constants/buttonVarients';
 
 interface ImageUploadModalProps {
     isOpen: boolean;
@@ -115,11 +118,11 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
             <div className="image-upload-modal__container">
                 <div className="image-upload-modal__header">
                     <CustomText
-                        variant='h5'
-                        value="Upload Image"
+                        variant={textVariant.h4}
+                        text="Upload Image"
                     />
                     <CustomButton
-                        variant='icon'
+                        variant={buttonVarients.icon}
                         icon={<X size={24} />}
                         onClick={handleClose}
                     />
@@ -133,16 +136,16 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
                                 }`}
                         >
                             <input {...getInputProps()} />
-                            <Upload className="image-upload-modal__upload-icon" size={48} />
+                            <Upload className="image-upload-modal__upload-icon" size={48} color={colors.accent} />
                             <CustomText
-                                variant='h5'
-                                value={isDragActive
+                                variant={textVariant.h4}
+                                text={isDragActive
                                     ? 'Drop the image here'
                                     : 'Drag & drop an image here'}
                             />
                             <CustomText
-                                variant='p'
-                                value="or click to select a file"
+                                variant={textVariant.p}
+                                text="or click to select a file"
                             />
                         </div>
                     ) : (
@@ -155,7 +158,7 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
                                 />
                             </div>
                             <CustomButton
-                                variant='primary'
+                                variant={buttonVarients.primary}
                                 text="Choose a different image"
                                 onClick={() => {
                                     setPreview(null);
@@ -169,21 +172,21 @@ export const ImageUploadModal: React.FC<ImageUploadModalProps> = ({
                 </div>
                 <div className='image-upload-modal__description'>
                     <CustomText
-                        variant='caption'
-                        value="Supports PNG, JPG, WEBP up to 5MB"
+                        variant={textVariant.p}
+                        text="Supports PNG, JPG, WEBP up to 5MB"
                     />
                 </div>
 
 
                 <div className="image-upload-modal__footer">
                     <CustomButton
-                        variant='ternary'
+                        variant={buttonVarients.secondary}
                         text="Cancel"
                         onClick={handleClose}
 
                     />
                     <CustomButton
-                        variant='primary'
+                        variant={buttonVarients.primary}
                         text="Upload"
                         disabled={!selectedFile}
                         onClick={handleUpload}

@@ -1,0 +1,20 @@
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.topbar-container {
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.editor-panel {
+    display: flex;
+    flex: 1;
+    gap: 0;
+    overflow: hidden;
+    background: #0f0f1e;
+}
